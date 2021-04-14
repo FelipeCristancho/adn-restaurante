@@ -19,3 +19,12 @@ dish_id bigint not null auto_increment,
 dish_name varchar(255),
 price double precision not null,
 primary key (dish_id));
+
+CREATE TABLE sale (
+id int(11) not null auto_increment,
+sale_date date not null,
+client_id int(11) not null,
+dish_id bigint not null,
+primary key (id),
+FOREIGN key (client_id) REFERENCES client(id),
+FOREIGN key (dish_id) REFERENCES dishe(dish_id));

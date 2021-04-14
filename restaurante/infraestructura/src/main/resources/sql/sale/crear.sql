@@ -1,0 +1,1 @@
+insert into sale(client_id, dish_id, sale_date) values (:client, :dish, :saleDate)
