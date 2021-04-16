@@ -2,7 +2,7 @@ package com.ceiba.sale.controlador;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.client.controlador.ConsultaControladorClient;
-import com.ceiba.dish.controlador.ConsultaControladorDish;
+import com.ceiba.dish.controlador.ConsultaControladorDishTest;
 import com.ceiba.sale.comando.ComandoSale;
 import com.ceiba.sale.servicio.testdatabuilder.ComandoSaleTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
-@WebMvcTest({ConsultaControladorClient.class, ConsultaControladorDish.class})
+@WebMvcTest({ConsultaControladorClient.class, ConsultaControladorDishTest.class})
 public class ComandoControladorSaleTest {
 
     @Autowired

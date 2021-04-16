@@ -16,8 +16,8 @@ import org.springframework.context.annotation.Configuration;
 public class BeanServicio {
 
     @Bean
-    public ServicioCrearSale servicioCrearSale(RepositorioSale repositorioSale, RepositorioDish repositorioDish){
-        return new ServicioCrearSale(repositorioSale, repositorioDish);
+    public ServicioCrearSale servicioCrearSale(RepositorioSale repositorioSale, RepositorioDish repositorioDish, RepositorioClient repositorioClient){
+        return new ServicioCrearSale(repositorioSale, repositorioDish, repositorioClient);
     }
 
     @Bean
