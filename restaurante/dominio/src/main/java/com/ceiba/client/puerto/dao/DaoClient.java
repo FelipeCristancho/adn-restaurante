@@ -1,5 +1,6 @@
 package com.ceiba.client.puerto.dao;
 
+import com.ceiba.client.modelo.dto.DtoBestClient;
 import com.ceiba.client.modelo.dto.DtoClient;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface DaoClient {
      * @return los clientes
      */
     List<DtoClient> listar();
+    List<DtoBestClient> MejorCliente();
 }

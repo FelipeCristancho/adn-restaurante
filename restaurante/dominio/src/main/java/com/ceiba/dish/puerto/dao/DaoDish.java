@@ -1,6 +1,7 @@
 package com.ceiba.dish.puerto.dao;
 
 import com.ceiba.dish.modelo.dto.DtoDish;
+import com.ceiba.dish.modelo.dto.DtoDishMasVendido;
 
 import java.util.List;
 
@@ -11,4 +12,5 @@ public interface DaoDish {
      * @return todos los platos
      */
     List<DtoDish> listar();
+    List<DtoDishMasVendido> masVendido();
 }

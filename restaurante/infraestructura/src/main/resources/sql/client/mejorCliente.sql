@@ -1,0 +1,1 @@
+SELECT c.*, count(name) purchases FROM CLIENT c JOIN sale s ON s.client_id = c.id GROUP BY NAME ORDER BY purchases DESC LIMIT 1;

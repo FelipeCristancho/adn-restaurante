@@ -5,4 +5,9 @@ import com.ceiba.dish.modelo.dto.DtoDish;
 import java.util.List;
 
 public interface RepositorioDish {
+
+    /*
+     *retorna el precio de un plato específico
+     */
+    float retornarPrecio(Long id);
 }

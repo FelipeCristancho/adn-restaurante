@@ -16,6 +16,8 @@ public class MapeoSale implements RowMapper<DtoSale>, MapperResult {
         LocalDate saleDate = extraerLocalDate(rs,"sale_date");
         String client = rs.getString("client");
         String dish = rs.getString("dish");
-        return new DtoSale(id,saleDate,dish,client);
+        Float price = rs.getFloat("price");
+        Integer promotion = rs.getInt("promotion");
+        return new DtoSale(id,saleDate,dish,price,client, promotion);
     }
 }

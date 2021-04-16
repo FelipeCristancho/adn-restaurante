@@ -14,7 +14,8 @@ public class FabricaSale {
           comandoSale.getId(),
           LocalDate.now(),
           comandoSale.getDish(),
-          comandoSale.getClient()
+          comandoSale.getClient(),
+          comandoSale.getPromotion()
         );
     }
 }

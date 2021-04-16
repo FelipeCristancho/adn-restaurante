@@ -1,5 +1,6 @@
 package com.ceiba.client.adaptador.dao;
 
+import com.ceiba.client.modelo.dto.DtoBestClient;
 import com.ceiba.client.modelo.dto.DtoClient;
 import com.ceiba.client.puerto.dao.DaoClient;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
@@ -15,6 +16,9 @@ public class DaoClientMysql implements DaoClient {
     @SqlStatement(namespace = "client", value = "listar")
     private static String sqListar;
 
+    @SqlStatement(namespace = "client", value = "mejorCliente")
+    private static String sqMejorCliente;
+
     public DaoClientMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -22,5 +26,10 @@ public class DaoClientMysql implements DaoClient {
     @Override
     public List<DtoClient> listar() {
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqListar,  new MapeoClient());
+    }
+
+    @Override
+    public List<DtoBestClient> MejorCliente() {
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().query(sqMejorCliente, new MapeoMejorCliente());
     }
 }

@@ -1,1 +1,1 @@
-select count(1) from client where dni = :dni
+select count(*) from client where dni = :dni

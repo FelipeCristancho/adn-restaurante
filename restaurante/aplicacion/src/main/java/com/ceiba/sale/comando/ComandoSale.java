@@ -17,4 +17,5 @@ public class ComandoSale {
     private LocalDate saleDate;
     private Long dish;
     private Long client;
+    private int promotion;
 }
