@@ -2,6 +2,7 @@ package com.ceiba.configuracion;
 
 import com.ceiba.client.puerto.repositorio.RepositorioClient;
 import com.ceiba.client.servicio.ServicioCrearClient;
+import com.ceiba.dish.puerto.repositorio.RepositorioDish;
 import com.ceiba.sale.puerto.repositorio.RepositorioSale;
 import com.ceiba.sale.servicio.ServicioCrearSale;
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
@@ -15,8 +16,8 @@ import org.springframework.context.annotation.Configuration;
 public class BeanServicio {
 
     @Bean
-    public ServicioCrearSale servicioCrearSale(RepositorioSale repositorioSale){
-        return new ServicioCrearSale(repositorioSale);
+    public ServicioCrearSale servicioCrearSale(RepositorioSale repositorioSale, RepositorioDish repositorioDish){
+        return new ServicioCrearSale(repositorioSale, repositorioDish);
     }
 
     @Bean
