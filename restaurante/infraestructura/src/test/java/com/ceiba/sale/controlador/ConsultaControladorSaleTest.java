@@ -1,4 +1,4 @@
-package com.ceiba.usuario.controlador;
+package com.ceiba.sale.controlador;
 
 import com.ceiba.ApplicationMock;
 import com.ceiba.client.controlador.ConsultaControladorClient;
@@ -23,22 +23,38 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes= ApplicationMock.class)
-@WebMvcTest(ConsultaControladorUsuario.class)
-public class ConsultaControladorUsuarioTest {
+@WebMvcTest({ConsultaControladorClient.class, ConsultaControladorDish.class})
+public class ConsultaControladorSaleTest {
 
     @Autowired
-    private MockMvc mocMvc;
+    private MockMvc mockMvc;
 
     @Test
-    public void listar() throws Exception {
-        // arrange
+    public void listar() throws Exception{
+        mockMvc.perform(get("/sale")
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$", hasSize(1)))
+            .andExpect(jsonPath("$[0].id",is(1)))
+            .andExpect(jsonPath("$[0].saleDate",is(LocalDate.now().toString())))
+            .andExpect(jsonPath("$[0].dish",is("Bandeja Paisa")))
+            .andExpect(jsonPath("$[0].client",is("Ivan Cristancho")))
+            .andExpect(jsonPath("$[0].promotion",is(1)));
+    }
 
-        // act - assert
-        mocMvc.perform(get("/usuarios")
+    @Test
+    public void listByClient() throws Exception {
+        //arrange
+        Long client = 1L;
+
+        mockMvc.perform(get("/sale/client/{id}",client)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].nombre", is("test")));
+                .andExpect(jsonPath("$[0].id",is(1)))
+                .andExpect(jsonPath("$[0].saleDate",is(LocalDate.now().toString())))
+                .andExpect(jsonPath("$[0].dish",is("Bandeja Paisa")))
+                .andExpect(jsonPath("$[0].client",is("Ivan Cristancho")))
+                .andExpect(jsonPath("$[0].promotion",is(1)));
     }
-
 }
