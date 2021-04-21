@@ -19,7 +19,7 @@ public class RepositorioPlatoMysql implements RepositorioPlato {
     }
 
     @Override
-    public float retornarPrecio(Long dish) {
+    public float obtenerPrecio(Long dish) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("dish", dish);
             return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlPrecio,parameterSource, Float.class);

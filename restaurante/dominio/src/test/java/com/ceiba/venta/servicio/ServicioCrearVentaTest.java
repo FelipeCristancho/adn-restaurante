@@ -31,7 +31,7 @@ public class ServicioCrearVentaTest {
         RepositorioVenta repositorioVenta = Mockito.mock(RepositorioVenta.class);
         RepositorioPlato repositorioPlato = Mockito.mock(RepositorioPlato.class);
         RepositorioCliente repositorioCliente = Mockito.mock(RepositorioCliente.class);
-        Mockito.when(repositorioVenta.retornarCantidadVentas(Mockito.anyLong())).thenReturn(VENTAS_TOTALES);
+        Mockito.when(repositorioVenta.obtenerCantidadVentas(Mockito.anyLong())).thenReturn(VENTAS_TOTALES);
         Mockito.when(repositorioCliente.existe(Mockito.anyLong())).thenReturn(true);
         ServicioCrearVenta servicioCrearVenta = new ServicioCrearVenta(repositorioVenta, repositorioPlato, repositorioCliente);
         servicioCrearVenta.ejecutar(venta);
@@ -50,8 +50,8 @@ public class ServicioCrearVentaTest {
         RepositorioVenta repositorioVenta = Mockito.mock(RepositorioVenta.class);
         RepositorioPlato repositorioPlato = Mockito.mock(RepositorioPlato.class);
         RepositorioCliente repositorioCliente = Mockito.mock(RepositorioCliente.class);
-        Mockito.when(repositorioPlato.retornarPrecio(Mockito.anyLong())).thenReturn(PRECIO_BANDEJA_PAISA);
-        Mockito.when(repositorioVenta.retornarCantidadGastada(Mockito.anyLong())).thenReturn(CANTIDAD_GASTADA);
+        Mockito.when(repositorioPlato.obtenerPrecio(Mockito.anyLong())).thenReturn(PRECIO_BANDEJA_PAISA);
+        Mockito.when(repositorioVenta.obtenerCantidadGastada(Mockito.anyLong())).thenReturn(CANTIDAD_GASTADA);
         Mockito.when(repositorioCliente.existe(Mockito.anyLong())).thenReturn(true);
         ServicioCrearVenta servicioCrearVenta = new ServicioCrearVenta(repositorioVenta, repositorioPlato, repositorioCliente);
         servicioCrearVenta.ejecutar(venta);

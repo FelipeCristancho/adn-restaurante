@@ -31,14 +31,14 @@ public class ServicioCrearVenta {
     }
 
     private void validarPromocionporCantidadCompras(Venta venta){
-        int cantidadVentas = this.repositorioVenta.retornarCantidadVentas(venta.getCliente());
+        int cantidadVentas = this.repositorioVenta.obtenerCantidadVentas(venta.getCliente());
         if (cantidadVentas == CANTIDAD_PROMOCION)
             venta.asignarVentaGratuita();
     }
 
     private void validarPromocionCantidadDinero(Venta venta){
-          float cantidadDinero = this.repositorioVenta.retornarCantidadGastada(venta.getCliente());
-          float precioPlato = this.repositorioPlato.retornarPrecio(venta.getPlato());
+          float cantidadDinero = this.repositorioVenta.obtenerCantidadGastada(venta.getCliente());
+          float precioPlato = this.repositorioPlato.obtenerPrecio(venta.getPlato());
           if(cantidadDinero < CANTIDAD_DINERO && (cantidadDinero + precioPlato) >= CANTIDAD_DINERO)
                 venta.asignarVentaGratuita();
     }

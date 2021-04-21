@@ -5,5 +5,5 @@ public interface RepositorioPlato {
     /*
      *retorna el precio de un plato específico
      */
-    float retornarPrecio(Long id);
+    float obtenerPrecio(Long id);
 }

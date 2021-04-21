@@ -34,14 +34,14 @@ public class RepositorioVentaMysql implements RepositorioVenta {
     }
 
     @Override
-    public int retornarCantidadVentas(Long dni) {
+    public int obtenerCantidadVentas(Long dni) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("cliente", dni);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlCantidadCompras,parameterSource, Integer.class);
     }
 
     @Override
-    public float retornarCantidadGastada(Long dni) {
+    public float obtenerCantidadGastada(Long dni) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("cliente", dni);
         if(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlCantidadGastadas,parameterSource, Float.class) != null)
@@ -50,7 +50,7 @@ public class RepositorioVentaMysql implements RepositorioVenta {
     }
 
     @Override
-    public float retornarValorPlato(Long plato) {
+    public float obtenerValorPlato(Long plato) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("plato", plato);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlPrecio,parameterSource, Float.class);
