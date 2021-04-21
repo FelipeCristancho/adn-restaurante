@@ -25,7 +25,7 @@ id int(11) not null auto_increment,
 sale_date date not null,
 client_id int(11) not null,
 dish_id bigint not null,
-promotion  int(11)  null,
+promotion  boolean  null,
 primary key (id),
 FOREIGN key (client_id) REFERENCES client(id),
 FOREIGN key (dish_id) REFERENCES dishe(dish_id));

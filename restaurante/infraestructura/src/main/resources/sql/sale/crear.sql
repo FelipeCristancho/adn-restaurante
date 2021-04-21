@@ -1,1 +1,0 @@
-INSERT INTO SALE (client_id, dish_id, sale_date, promotion) Select id, dish_id, CURDATE(),:promotion from client, dishe where dni = :client and  dish_id = :dish;

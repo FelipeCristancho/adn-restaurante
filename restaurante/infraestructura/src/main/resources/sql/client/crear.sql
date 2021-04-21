@@ -1,1 +1,0 @@
-insert into client (dni, name,last_name,telephone) values (:dni, :name, :last_name, :telephone)

@@ -1,10 +1,10 @@
 package com.ceiba.configuracion;
 
-import com.ceiba.client.puerto.repositorio.RepositorioClient;
-import com.ceiba.client.servicio.ServicioCrearClient;
-import com.ceiba.dish.puerto.repositorio.RepositorioDish;
-import com.ceiba.sale.puerto.repositorio.RepositorioSale;
-import com.ceiba.sale.servicio.ServicioCrearSale;
+import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
+import com.ceiba.cliente.servicio.ServicioCrearCliente;
+import com.ceiba.plato.puerto.repositorio.RepositorioPlato;
+import com.ceiba.venta.puerto.repositorio.RepositorioVenta;
+import com.ceiba.venta.servicio.ServicioCrearVenta;
 import com.ceiba.usuario.puerto.repositorio.RepositorioUsuario;
 import com.ceiba.usuario.servicio.ServicioActualizarUsuario;
 import com.ceiba.usuario.servicio.ServicioCrearUsuario;
@@ -16,13 +16,13 @@ import org.springframework.context.annotation.Configuration;
 public class BeanServicio {
 
     @Bean
-    public ServicioCrearSale servicioCrearSale(RepositorioSale repositorioSale, RepositorioDish repositorioDish, RepositorioClient repositorioClient){
-        return new ServicioCrearSale(repositorioSale, repositorioDish, repositorioClient);
+    public ServicioCrearVenta servicioCrearSale(RepositorioVenta repositorioVenta, RepositorioPlato repositorioPlato, RepositorioCliente repositorioCliente){
+        return new ServicioCrearVenta(repositorioVenta, repositorioPlato, repositorioCliente);
     }
 
     @Bean
-    public ServicioCrearClient servicioCrearClient(RepositorioClient repositorioClient){
-        return new ServicioCrearClient(repositorioClient);
+    public ServicioCrearCliente servicioCrearClient(RepositorioCliente repositorioCliente){
+        return new ServicioCrearCliente(repositorioCliente);
     }
 
     @Bean

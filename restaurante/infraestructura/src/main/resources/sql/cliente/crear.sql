@@ -1,0 +1,1 @@
+insert into client (dni, name,last_name,telephone) values (:dni, :nombre, :apellido, :telefono)
