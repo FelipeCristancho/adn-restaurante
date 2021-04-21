@@ -36,7 +36,7 @@ public class ComandoControladorVentaTest {
         ComandoVenta comandoVenta = new ComandoSaleTestDataBuilder().build();
 
         //act - assert
-        mocMvc.perform(post("/sale")
+        mocMvc.perform(post("/ventas")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(comandoVenta)))
                 .andExpect(status().isOk())
