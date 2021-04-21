@@ -5,8 +5,6 @@ import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.venta.modelo.entidad.Venta;
 import com.ceiba.venta.puerto.repositorio.RepositorioVenta;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -32,10 +30,6 @@ public class RepositorioVentaMysql implements RepositorioVenta {
 
     @Override
     public Long crear(Venta venta) {
-        KeyHolder keyHolder = new GeneratedKeyHolder();
-        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        //parameterSource.addValue("promocion", venta.isPromocion());
-        //return (long)this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, parameterSource, keyHolder, new String[]{"id"});
         return this.customNamedParameterJdbcTemplate.crear(venta,sqlCrear);
     }
 
