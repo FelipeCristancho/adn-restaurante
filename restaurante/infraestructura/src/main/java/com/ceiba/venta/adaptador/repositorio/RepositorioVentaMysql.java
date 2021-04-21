@@ -49,10 +49,4 @@ public class RepositorioVentaMysql implements RepositorioVenta {
         return 0;
     }
 
-    @Override
-    public float obtenerValorPlato(Long plato) {
-        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue("plato", plato);
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlPrecio,parameterSource, Float.class);
-    }
 }

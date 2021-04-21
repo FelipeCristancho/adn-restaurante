@@ -21,6 +21,5 @@ public interface RepositorioVenta {
      */
     float obtenerCantidadGastada(Long dni);
 
-    float obtenerValorPlato(Long id);
 
 }
