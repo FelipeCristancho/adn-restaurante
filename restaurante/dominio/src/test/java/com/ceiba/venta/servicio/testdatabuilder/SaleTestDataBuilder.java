@@ -10,13 +10,13 @@ public class SaleTestDataBuilder {
     private LocalDate saleDate;
     private Long dish;
     private Long client;
-    private int promotion;
+    private boolean promotion;
 
     public SaleTestDataBuilder() {
         this.saleDate = LocalDate.parse("2021-04-16");
         this.dish = 1L;
         this.client = 1L;
-        this.promotion = 0;
+        this.promotion = false;
     }
 
     public SaleTestDataBuilder conId(Long id){

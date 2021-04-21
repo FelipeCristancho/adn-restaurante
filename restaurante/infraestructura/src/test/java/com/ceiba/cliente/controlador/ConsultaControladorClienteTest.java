@@ -29,14 +29,14 @@ public class ConsultaControladorClienteTest {
         //arrange
 
         //act - assert
-        mockMvc.perform(get("/clients")
+        mockMvc.perform(get("/clientes")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$", hasSize(1)))
         .andExpect(jsonPath("$[0].id", is(1)))
-        .andExpect(jsonPath("$[0].name", is("Ivan")))
-        .andExpect(jsonPath("$[0].last_name", is("Cristancho")))
-        .andExpect(jsonPath("$[0].telephone", is("1234567890")));
+        .andExpect(jsonPath("$[0].nombre", is("Ivan")))
+        .andExpect(jsonPath("$[0].apellido", is("Cristancho")))
+        .andExpect(jsonPath("$[0].telefono", is("1234567890")));
     }
 
     @Test
@@ -44,14 +44,14 @@ public class ConsultaControladorClienteTest {
         //arrange
 
         //act - assert
-        mockMvc.perform(get("/clients/mejor")
+        mockMvc.perform(get("/clientes/mejor")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].id", is(1)))
-                .andExpect(jsonPath("$[0].name", is("Ivan")))
-                .andExpect(jsonPath("$[0].last_name", is("Cristancho")))
-                .andExpect(jsonPath("$[0].telephone", is("1234567890")))
-                .andExpect(jsonPath("$[0].totalPurchases", is(1)));
+                .andExpect(jsonPath("$[0].nombre", is("Ivan")))
+                .andExpect(jsonPath("$[0].apellido", is("Cristancho")))
+                .andExpect(jsonPath("$[0].telefono", is("1234567890")))
+                .andExpect(jsonPath("$[0].totalCompras", is(1)));
     }
 }

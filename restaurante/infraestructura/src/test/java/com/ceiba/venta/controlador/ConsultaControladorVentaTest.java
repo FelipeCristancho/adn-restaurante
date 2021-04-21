@@ -30,15 +30,15 @@ public class ConsultaControladorVentaTest {
 
     @Test
     public void listar() throws Exception{
-        mockMvc.perform(get("/sale")
+        mockMvc.perform(get("/ventas")
             .contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$", hasSize(1)))
             .andExpect(jsonPath("$[0].id",is(1)))
-            .andExpect(jsonPath("$[0].saleDate",is(LocalDate.now().toString())))
-            .andExpect(jsonPath("$[0].dish",is("Bandeja Paisa")))
-            .andExpect(jsonPath("$[0].client",is("Ivan Cristancho")))
-            .andExpect(jsonPath("$[0].promotion",is(1)));
+            .andExpect(jsonPath("$[0].fecha",is(LocalDate.now().toString())))
+            .andExpect(jsonPath("$[0].plato",is("Bandeja Paisa")))
+            .andExpect(jsonPath("$[0].cliente",is("Ivan Cristancho")))
+            .andExpect(jsonPath("$[0].promocion",is(true)));
     }
 
     @Test
@@ -46,14 +46,14 @@ public class ConsultaControladorVentaTest {
         //arrange
         Long client = 1L;
 
-        mockMvc.perform(get("/sale/client/{id}",client)
+        mockMvc.perform(get("/ventas/cliente/{id}",client)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].id",is(1)))
-                .andExpect(jsonPath("$[0].saleDate",is(LocalDate.now().toString())))
-                .andExpect(jsonPath("$[0].dish",is("Bandeja Paisa")))
-                .andExpect(jsonPath("$[0].client",is("Ivan Cristancho")))
-                .andExpect(jsonPath("$[0].promotion",is(1)));
+                .andExpect(jsonPath("$[0].fecha",is(LocalDate.now().toString())))
+                .andExpect(jsonPath("$[0].plato",is("Bandeja Paisa")))
+                .andExpect(jsonPath("$[0].cliente",is("Ivan Cristancho")))
+                .andExpect(jsonPath("$[0].promocion",is(true)));
     }
 }

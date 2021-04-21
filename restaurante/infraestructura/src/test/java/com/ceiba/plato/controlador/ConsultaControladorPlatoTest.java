@@ -31,13 +31,13 @@ public class ConsultaControladorPlatoTest {
         //arrange
 
         //act - assert
-        mockMvc.perform(get("/dish")
+        mockMvc.perform(get("/platos")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$", hasSize(1)))
-        .andExpect(jsonPath("$[0].dishId", is(1)))
-        .andExpect(jsonPath("$[0].dishName", is("Bandeja Paisa")))
-        .andExpect(jsonPath("$[0].price", is(15000.0)));
+        .andExpect(jsonPath("$[0].id", is(1)))
+        .andExpect(jsonPath("$[0].nombre", is("Bandeja Paisa")))
+        .andExpect(jsonPath("$[0].precio", is(15000.0)));
     }
 
     @Test
@@ -45,12 +45,12 @@ public class ConsultaControladorPlatoTest {
         //arrange
 
         //act - assert
-        mockMvc.perform(get("/dish/mejor")
+        mockMvc.perform(get("/platos/mejor")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
-                .andExpect(jsonPath("$[0].dishId", is(1)))
-                .andExpect(jsonPath("$[0].dishName", is("Bandeja Paisa")))
-                .andExpect(jsonPath("$[0].price", is(15000.0)));
+                .andExpect(jsonPath("$[0].id", is(1)))
+                .andExpect(jsonPath("$[0].nombre", is("Bandeja Paisa")))
+                .andExpect(jsonPath("$[0].precio", is(15000.0)));
     }
 }

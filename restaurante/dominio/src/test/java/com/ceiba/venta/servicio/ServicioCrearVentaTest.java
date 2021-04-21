@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class ServicioCrearVentaTest {
 
     private static final int VENTAS_TOTALES =  4;
-    private static final int PROMOCION = 1;
+    private static final boolean PROMOCION = true;
     private static final float PRECIO_BANDEJA_PAISA = 15000;
     private static final float CANTIDAD_GASTADA = 35000;
 
@@ -37,7 +37,7 @@ public class ServicioCrearVentaTest {
         servicioCrearVenta.ejecutar(venta);
 
         //act - assert
-        assertEquals(PROMOCION, venta.getPromocion());
+        assertEquals(PROMOCION, venta.isPromocion());
     }
 
     /*
@@ -57,7 +57,7 @@ public class ServicioCrearVentaTest {
         servicioCrearVenta.ejecutar(venta);
 
         //act - assert
-        assertEquals(PROMOCION, venta.getPromocion());
+        assertEquals(PROMOCION, venta.isPromocion());
     }
 
     @Test
