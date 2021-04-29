@@ -3,7 +3,6 @@ package com.ceiba.venta.modelo.entidad;
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.plato.modelo.entidad.Plato;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDate;
 

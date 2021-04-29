@@ -23,9 +23,9 @@ public class ServicioCrearVenta {
     }
 
     public Long ejecutar(Venta venta){
+        validarExistenciaPrevia(venta);
         validarPromocionporCantidadCompras(venta);
         validarPromocionCantidadDinero(venta);
-        validarExistenciaPrevia(venta);
         return this.repositorioVenta.crear(venta);
     }
 

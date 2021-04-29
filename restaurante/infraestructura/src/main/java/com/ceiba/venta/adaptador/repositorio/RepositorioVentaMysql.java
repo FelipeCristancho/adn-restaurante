@@ -6,7 +6,6 @@ import com.ceiba.venta.modelo.dto.DtoCrearVenta;
 import com.ceiba.venta.modelo.entidad.Venta;
 import com.ceiba.venta.puerto.repositorio.RepositorioVenta;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -47,9 +46,7 @@ public class RepositorioVentaMysql implements RepositorioVenta {
     public float obtenerCantidadGastada(Long dni) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("cliente", dni);
-        if(this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlCantidadGastadas,parameterSource, Float.class) != null)
-            return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlCantidadGastadas,parameterSource, Float.class);
-        return 0;
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlCantidadGastadas,parameterSource, Float.class);
     }
 
 }
