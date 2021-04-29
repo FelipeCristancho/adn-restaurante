@@ -2,7 +2,6 @@ package com.ceiba.cliente.adaptador.repositorio;
 
 import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.infraestructura.jdbc.MapperResult;
-import com.ceiba.plato.modelo.entidad.Plato;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

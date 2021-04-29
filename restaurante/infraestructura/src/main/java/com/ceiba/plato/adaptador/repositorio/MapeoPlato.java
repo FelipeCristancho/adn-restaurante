@@ -1,7 +1,6 @@
 package com.ceiba.plato.adaptador.repositorio;
 
 import com.ceiba.infraestructura.jdbc.MapperResult;
-import com.ceiba.plato.modelo.dto.DtoPlato;
 import com.ceiba.plato.modelo.entidad.Plato;
 import org.springframework.jdbc.core.RowMapper;
 
