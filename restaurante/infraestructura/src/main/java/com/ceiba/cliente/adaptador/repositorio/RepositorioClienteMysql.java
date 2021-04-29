@@ -4,18 +4,20 @@ import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
+
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 @Repository
 public class RepositorioClienteMysql implements RepositorioCliente {
 
     private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
-    private static final String REGISTRO_NO_ENCONTRADO = "Cliente no encontrado.";
-    private static final Logger LOGGER = LoggerFactory.getLogger(RepositorioClienteMysql.class);
+    private static final String CLIENTE_NO_ENCONTRADO = "Cliente no encontrado.";
+    private static final Logger LOGGER = Logger.getLogger(RepositorioClienteMysql.class.getName());
     private static final Cliente clienteDefault = new Cliente(-1L,-1L,"DEFAULT","DEFAULT","-1");
 
     @SqlStatement(namespace = "cliente",value = "crear")
@@ -50,7 +52,7 @@ public class RepositorioClienteMysql implements RepositorioCliente {
         try {
             return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarPorDni,parameterSource,new MapeoCliente());
         } catch (EmptyResultDataAccessException emptyResultDataAccessException){
-            LOGGER.warn(emptyResultDataAccessException.toString());
+            LOGGER.log(Level.FINE,CLIENTE_NO_ENCONTRADO,emptyResultDataAccessException);
             return clienteDefault;
         }
     }
