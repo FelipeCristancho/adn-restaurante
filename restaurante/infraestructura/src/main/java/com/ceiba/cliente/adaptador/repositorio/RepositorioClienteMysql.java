@@ -50,7 +50,7 @@ public class RepositorioClienteMysql implements RepositorioCliente {
         try {
             return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarPorDni,parameterSource,new MapeoCliente());
         } catch (EmptyResultDataAccessException emptyResultDataAccessException){
-            LOGGER.warn(REGISTRO_NO_ENCONTRADO);
+            LOGGER.warn(emptyResultDataAccessException.toString());
             return clienteDefault;
         }
     }
