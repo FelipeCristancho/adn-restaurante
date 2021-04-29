@@ -1,18 +1,14 @@
-package com.ceiba.venta.comando;
+package com.ceiba.venta.modelo.dto;
 
 import com.ceiba.plato.modelo.entidad.Plato;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
-public class ComandoVenta {
+public class DtoCrearVenta {
 
     private Long id;
     private LocalDate fecha;

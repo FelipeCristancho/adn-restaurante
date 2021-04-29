@@ -1,0 +1,1 @@
+select dish_id, dish_name, price from dishe where dish_id = :dish;

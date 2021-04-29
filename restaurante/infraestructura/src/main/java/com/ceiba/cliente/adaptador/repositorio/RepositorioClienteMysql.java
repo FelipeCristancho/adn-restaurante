@@ -4,6 +4,7 @@ import com.ceiba.cliente.modelo.entidad.Cliente;
 import com.ceiba.cliente.puerto.repositorio.RepositorioCliente;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
+import com.ceiba.plato.modelo.entidad.Plato;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +18,9 @@ public class RepositorioClienteMysql implements RepositorioCliente {
 
     @SqlStatement(namespace="cliente", value="existe")
     private static String sqlExiste;
+
+    @SqlStatement(namespace = "cliente", value = "buscar")
+    private static String sqlBuscarPorDni;
 
     public RepositorioClienteMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -32,5 +36,12 @@ public class RepositorioClienteMysql implements RepositorioCliente {
         MapSqlParameterSource paramSource = new MapSqlParameterSource();
         paramSource.addValue("dni",dni);
         return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste,paramSource,Boolean.class);
+    }
+
+    @Override
+    public Cliente buscarClientePorId(long dni) {
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("dni",dni);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlBuscarPorDni,parameterSource,new MapeoCliente());
     }
 }

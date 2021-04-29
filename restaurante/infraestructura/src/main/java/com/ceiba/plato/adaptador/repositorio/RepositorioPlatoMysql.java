@@ -1,5 +1,6 @@
 package com.ceiba.plato.adaptador.repositorio;
 
+import com.ceiba.plato.modelo.entidad.Plato;
 import com.ceiba.plato.puerto.repositorio.RepositorioPlato;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
@@ -14,6 +15,9 @@ public class RepositorioPlatoMysql implements RepositorioPlato {
     @SqlStatement(namespace = "plato", value = "precio")
     private static String sqlPrecio;
 
+    @SqlStatement(namespace = "plato", value = "buscar")
+    private static String sqlPlato;
+
     public RepositorioPlatoMysql(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
@@ -23,5 +27,12 @@ public class RepositorioPlatoMysql implements RepositorioPlato {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("dish", dish);
             return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlPrecio,parameterSource, Float.class);
+    }
+
+    @Override
+    public Plato buscarPlatoPorId(long id) {
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("dish", id);
+        return  this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlPlato, parameterSource, new MapeoPlato());
     }
 }
